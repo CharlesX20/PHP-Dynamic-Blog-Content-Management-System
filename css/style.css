@@ -1,0 +1,1089 @@
+:root {
+    --wheat: #f5deb3;
+    --gold: #ffd700;
+    --dark-blue: #0a192f;
+    --light-blue: #1a3a5f;
+    --text-color: #333;
+    --white: #ffffff;
+    --transition: all 0.4s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+}
+
+/* ==== Header Navigation Wrapper ==== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, var(--wheat), var(--white));
+    padding: 0 2rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    padding: 1rem 0;
+}
+
+.logo img {
+    width: 10vw;
+    height: auto;
+    object-fit: contain;
+}
+
+nav ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: var(--transition);
+}
+
+nav ul a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gold);
+    transition: var(--transition);
+}
+
+nav ul a:hover {
+    color: var(--gold);
+}
+
+nav ul a:hover:after {
+    width: 100%;
+}
+
+/* -- Header / Nav -- */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.nav-menu li {
+    list-style: none;
+}
+.nav-auth {
+    margin-left: auto;
+}
+.login-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.login-form input {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.login-form button {
+    padding: 0.4rem 0.8rem;
+    background: var(--gold);
+    color: var(--dark-blue);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+.login-form button:hover {
+    opacity: 0.9;
+}
+.welcome {
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+/* ==== Flash Alerts ==== */
+.alert {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    transition: opacity 0.5s ease;
+}
+.alert-success {
+    background-color: var(--light-blue);
+    color: var(--white);
+    border: 1px solid var(--dark-blue);
+}
+.fade-out {
+    opacity: 0;
+}
+
+
+
+/* Hamburger toggle for mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--dark-blue);
+}
+
+
+.register-link {
+    background: var(--dark-blue);
+    color: var(--gold) !important;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.register-link:hover {
+    background: var(--gold);
+    color: var(--dark-blue) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.register-link:hover:after {
+    width: 0;
+}
+
+
+/* ==== Hero Section ==== */
+#home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.9)),
+    url('../images/image1.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 0 1.5rem;
+    max-width: 100%;
+}
+
+#home h1 {
+    color: var(--white);
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease forwards;
+}
+
+#home p {
+    color: var(--gold);
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark-blue);
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: var(--transition);
+    animation: fadeInUp 1s ease 0.4s forwards;
+    opacity: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background: var(--white);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ==== Section Reusable Styles ==== */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--dark-blue);
+    display: inline-block;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 2px;
+}
+
+/* ==== About Section ==== */
+.about {
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition);
+}
+
+.about-content.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==== Enhanced About Tech‑Tok Styling ==== */
+#about.about {
+    padding: 6rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    margin-bottom: 4rem;
+}
+
+#about .section-title h2 {
+    margin-bottom: 1.5rem;
+}
+
+#about .about-content {
+    color: #555;
+    font-size: 1.15rem;
+}
+
+/* ==== Latest Stories (Portfolio) ==== */
+.portfolio {
+    background: var(--white);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.project {
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.project-meta {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.project-content p {
+    color: #444;
+    line-height: 1.6;
+}
+
+/* ==== Empty State ==== */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 1.3rem;
+}
+
+/* ==== Register Section ==== */
+.register {
+    background: linear-gradient(to right, var(--wheat), var(--white));
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.register-content {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+}
+
+.register-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--gold);
+}
+
+.register-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    color: var(--dark-blue);
+}
+
+.register-button {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark-blue);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: var(--transition);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+.register-button:hover {
+    color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    animation: none;
+}
+
+.register-button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: var(--dark-blue);
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.register-button:hover:after {
+    height: 100%;
+}
+
+
+/* ==== Animations ==== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255,215,0,0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(255,215,0,0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255,215,0,0);
+    }
+}
+
+/* — login form in nav — */
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.login-form {
+    display: flex;
+    gap: 0.5rem;
+}
+.login-form input {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.login-form button {
+    padding: 0.3rem 0.8rem;
+    background: var(--gold);
+    color: var(--dark-blue);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.login-form button:hover {
+    opacity: 0.9;
+}
+.welcome {
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+/* — show/hide mobile menu — */
+nav ul.active {
+    right: 0;
+}
+
+/* ===== Page Header ===== */
+.lesson-masthead {
+    text-align: center;
+    margin: 1.7rem 0 1.5rem;
+}
+.lesson-masthead h1 {
+    font-size: 2.5rem;
+    color: var(--dark-blue);
+}
+
+/* ===== “Add New” Button Row ===== */
+.add-user-row {
+    text-align: right;
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+}
+
+/* ===== Data Table ===== */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+.table th,
+.table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.table-striped tr:nth-child(odd) {
+    background: #f9f9f9;
+}
+.align-middle td,
+.align-middle th {
+    vertical-align: middle;
+}
+
+/* ===== Buttons ===== */
+.btn {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+.btn-primary {
+    background: var(--gold);
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+.btn-primary:hover {
+    background: var(--white);
+    color: var(--dark-blue);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.btn-warning {
+    background: var(--light-blue);
+    color: var(--white);
+}
+.btn-warning:hover {
+    background: var(--dark-blue);
+    color: var(--gold);
+}
+.btn-danger {
+    background: #e74c3c;
+    color: var(--white);
+}
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+/* ===== Avatar in Table ===== */
+.author-avatar {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+/* ===== Registration Form ===== */
+.register-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+.register-form .form-label {
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+.register-form .form-control {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.error-message {
+    color: #e74c3c;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+
+/* ===== My Profile ===== */
+.about-owner {
+    background: var(--white);
+    padding: 4rem 2rem;
+}
+.owner-container {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.owner-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+.owner-bio h2 {
+    font-size: 2rem;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+.owner-bio p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+/* ===== Posts List ===== */
+.posts-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto 4rem;
+    padding: 0 1rem;
+}
+.post-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+
+}
+
+.post-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+.post-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: block;
+}
+.post-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.post-content h3 {
+    font-size: 1.5rem;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+.post-content small {
+    color: #666;
+    margin-bottom: 1rem;
+    display: block;
+}
+.post-content p {
+    flex-grow: 1;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+.post-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.post-actions .btn {
+    font-size: 0.85rem;
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 1.3rem;
+}
+
+
+/* ==== Post Creation Form ==== */
+.post-form {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+.post-form .form-label {
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+.post-form .form-control,
+.post-form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.post-form textarea {
+    resize: vertical;
+}
+.post-form .btn {
+    margin-right: 0.5rem;
+}
+
+/* Image inside project cards (home & about) */
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.project .author-avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+
+
+/* ==== Form Wrapper ==== */
+.add-form-row {
+    max-width: 600px;
+    margin: 2rem auto 4rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+}
+
+/* ==== Labels & Inputs ==== */
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+.form-control,
+textarea.form-control {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+textarea.form-control {
+    resize: vertical;
+    min-height: 140px;
+}
+
+/* ==== Button Variants ==== */
+.btn {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+.btn-primary {
+    background: var(--gold);
+    color: var(--dark-blue);
+}
+.btn-primary:hover {
+    background: var(--white);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.btn-warning {
+    background: var(--light-blue);
+    color: var(--white);
+}
+.btn-warning:hover {
+    background: var(--dark-blue);
+    color: var(--gold);
+}
+.btn-danger {
+    background: #e74c3c;
+    color: var(--white);
+}
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+/* ==== Image Preview in Forms ==== */
+.author-avatar,
+.project-img {
+    display: block;
+    margin: 0.5rem 0 1.5rem;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+
+.btn.disabled,
+.btn.disabled:hover {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+
+/* ==== Footer ==== */
+footer {
+    background: var(--dark-blue);
+    color: var(--wheat);
+    text-align: center;
+    padding: 2.5rem 1rem;
+    width: 100%;
+}
+
+.footer-logo img {
+    width: 10vw;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--gold);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: 1.3rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--gold);
+    color: var(--dark-blue);
+    transform: translateY(-5px);
+}
+
+footer p {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 2.8rem;
+    }
+
+    .user-list-row .table,
+    .user-list-row .table th,
+    .user-list-row .table td,
+    .user-list-row .table thead,
+    .user-list-row .table tbody,
+    .user-list-row .table tr {
+        display: block;
+    }
+    .user-list-row .table {
+        overflow-x: auto;
+        width: 100%;
+    }
+    .user-list-row .table th,
+    .user-list-row .table td {
+        /* reset padding/margins for block layout */
+        padding: 0.75rem;
+        text-align: left;
+        white-space: nowrap;
+    }
+    .user-list-row .table thead {
+        /* hide original header row, since you'll see column headers in cells */
+        display: none;
+    }
+    .user-list-row .table tr {
+        margin-bottom: 1rem;
+    }
+    .user-list-row .table tr td:first-child {
+        font-weight: 600;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0 1.5rem;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 101;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background: var(--wheat);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        transition: var(--transition);
+        z-index: 100;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul.active {
+        right: 0;
+    }
+
+    nav ul a {
+        color: var(--white);
+        font-size: 1.3rem;
+    }
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+        max-width: 700px;
+    }
+
+    .owner-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .owner-avatar {
+        margin: 0 auto 1.5rem;
+    }
+
+    .logo img {
+        width: 15vw;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        padding: 0 1.5rem;
+    }
+    .nav-menu li a,
+    .nav-menu li .register-link {
+        display: block;
+        width: 100%;
+    }
+
+    .login-form {
+        flex-direction: column;
+        width: 100%;
+    }
+    .login-form input,
+    .login-form button {
+        width: calc(100% - 3rem);
+        margin: 0.3rem auto;
+    }
+
+
+    .lesson-masthead h1 {
+        font-size: 1.5rem;
+    }
+    .add-user-row {
+        text-align: center;
+    }
+    .add-user-row .btn {
+        width: 100%;
+        padding: 0.6rem;
+    }
+    .user-list-row .table th,
+    .user-list-row .table td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .author-avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+
+    add-form-row {
+        padding: 1.5rem;
+        margin: 1.5rem auto 3rem;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .user-list-row .table {
+        border: none;
+    }
+    .user-list-row .table tr {
+        background: var(--white);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        padding: 1rem;
+    }
+    .user-list-row .table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid #eee;
+    }
+    .user-list-row .table td:last-child {
+        border-bottom: none;
+    }
+
+}
