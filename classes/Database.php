@@ -1,10 +1,10 @@
 <?php
 
 class Database {
-    private $host     = "172.31.22.43";
-    private $db_name  = "Chukwuebuka200613207";
-    private $username = "Chukwuebuka200613207";
-    private $password = "IBL5pcC3HP";
+    private $host     = "";
+    private $db_name  = "";
+    private $username = "";
+    private $password = "";
 
     // This will hold the actual PDO connection
     public $conn;
@@ -25,5 +25,6 @@ class Database {
         return $this->conn;
     }
 }
+
 
 ?>
